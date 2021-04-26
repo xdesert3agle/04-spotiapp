@@ -1,0 +1,10 @@
+<div (click)="openArtistSheet()" class="card dark-card h-100">
+	<img class="card-img-top" [src]="item.images | imageManager" [alt]="'Portada de ' + item.name">
+	<div class="card-body d-flex flex-column">
+		<h5 class="card-title">{{ item.name }}</h5>
+		<p class="card-text"></p>
+		<div class="badges-container mt-auto">
+			<span *ngFor="let artist of item.artists" class="badge badge-pill badge-custom">{{ artist.name }}</span>
+		</div>
+	</div>
+</div>

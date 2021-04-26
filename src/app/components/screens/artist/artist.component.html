@@ -1,0 +1,54 @@
+<div *ngIf="loading" class="row">
+	<div class="col mt-5">
+		<app-loading></app-loading>
+	</div>
+</div>
+
+<div *ngIf="!loading" class="row animated fadeIn faster">
+	<div class="col-auto">
+		<button routerLink="/search" class="btn-go-back">
+			<i class="fa fa-chevron-left fa-lg"></i>
+		</button>
+	</div>
+	<div class="col">
+		<div class="row">
+			<div class="col-2">
+				<img [src]="artist.images | imageManager" class="artist-portrait" alt="">
+			</div>
+			<div class="col">
+				<h3>{{ artist.name }}</h3>
+				<a [href]="artist.external_urls ? artist.external_urls.spotify : ''"
+				   target="_blank">Página del artista</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<table class="table table-dark table-borderless mt-4">
+					<thead>
+						<tr>
+							<th>Foto</th>
+							<th>Álbum</th>
+							<th>Canción</th>
+							<th>Vista previa</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let track of topTracks">
+							<td>
+								<img [src]="track.album.images | imageManager" class="album-thumbnail" [alt]="track.album.name">
+							</td>
+							<td>{{ track.album.name }}</td>
+							<td>{{ track.name }}</td>
+							<td>
+								<iframe *ngIf="track.preview_url else previewNotAvailable" [src]="track.uri | safeDomain" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+								<ng-template #previewNotAvailable>
+									<span>Vista previa no disponible.</span>
+								</ng-template>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

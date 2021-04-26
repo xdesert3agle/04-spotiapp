@@ -1,0 +1,24 @@
+.card {
+    border: 0;
+    cursor: pointer;
+}
+
+.dark-card {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-card * {
+    color: white;
+}
+
+.badge {
+    margin-right: 5px;
+}
+
+.badge-custom {
+    background-color: rgba(3, 215, 96, 0.50);
+}
+
+.badge:first-of-type {
+    margin-left: 0 !important;
+}

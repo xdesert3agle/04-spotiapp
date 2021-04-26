@@ -1,0 +1,25 @@
+<div *ngIf="error" class="alert alert-danger" role="alert">
+	<span class="font-weight-bold">API Error: <span class="font-weight-normal">{{ error }}.</span></span>
+</div>
+
+<div *ngIf="loading && !error" class="row animated fadeIn faster">
+	<div class="col mt-5">
+		<app-loading></app-loading>
+	</div>
+</div>
+
+<div *ngIf="!loading && !error" class="row">
+	<div class="col">
+		<div class="row">
+			<div class="col">
+				<h2>Nuevos lanzamientos</h2>
+			</div>
+		</div>
+		
+		<div class="row row-cols-1 row-cols-md-4 animated fadeIn faster">
+			<div *ngFor="let release of newReleases" class="col mb-4">
+				<app-card [item]="release"></app-card>
+			</div>
+		</div>
+	</div>
+</div>

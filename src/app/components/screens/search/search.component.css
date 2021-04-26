@@ -1,0 +1,26 @@
+input, input:focus {
+    background-color: rgba(255, 255, 255, 0.07);
+    border: 0;
+    color: white;
+    outline: 0!important;
+}
+
+input:focus {
+    box-shadow: 0 0 0 0.2rem rgb(3, 215, 96, 0.60);
+}
+
+.icon-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.icon-input i {
+    position: absolute;
+    left: 15px;
+    margin-bottom: 2px;
+}
+
+.icon-input input {
+    padding-left: 45px;
+}

@@ -1,0 +1,20 @@
+<div class="row">
+	<div class="col">
+		<div class="icon-input">
+			<i class="fa fa-search"></i>
+			<input #term (keyup)="searchTerm(term.value)" type="text" class="form-control" placeholder="Buscar artista">
+		</div>
+	</div>
+</div>
+
+<div *ngIf="loading" class="row animated fadeIn faster">
+	<div class="col mt-5">
+		<app-loading></app-loading>
+	</div>
+</div>
+
+<div *ngIf="!loading" class="row row-cols-1 row-cols-md-4 mt-5 animated fadeIn faster">
+	<div *ngFor="let artist of searchResult" class="col mb-4">
+		<app-card [item]="artist"></app-card>
+	</div>
+</div>
